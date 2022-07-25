@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import { type } from "@testing-library/user-event/dist/type";
 
 
 function PizzaBlock ({title, price, imageUrl, types, sizes}) {
@@ -26,12 +25,12 @@ function PizzaBlock ({title, price, imageUrl, types, sizes}) {
               <div className="pizza-block__selector">
                 <ul>
                   {types.map((typeId) => (
-                    <li onClick={() => setTypePizza(typeId)} className={typePizza === typeId ? "active" : ''}>{typesNames[typeId]}</li>
+                    <li key={typeId} onClick={() => setTypePizza(typeId)} className={typePizza === typeId ? "active" : ''}>{typesNames[typeId]}</li>
                   ))}
                 </ul>
                 <ul>
                   {sizes.map((size, index) => (
-                     <li onClick={() => setIndexSize(index)} className={indexSize === index ? "active" : ''}>{size} см.</li>
+                     <li key={index} onClick={() => setIndexSize(index)} className={indexSize === index ? "active" : ''}>{size} см.</li>
                   ))}
                 </ul>
               </div>
