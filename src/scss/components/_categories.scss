@@ -1,10 +1,18 @@
-@import 'variables';
+@import '../variables';
 
 .categories {
+  @media (max-width:1305px) {
+    margin-top: 35px;
+  }
   ul {
     display: flex;
-
+    @media (max-width:1305px) {
+      flex-wrap: wrap;
+    }
     li {
+      @media (max-width:1305px) {
+        margin-top: 5px;
+      }
       background-color: #f9f9f9;
       padding: 13px 30px;
       border-radius: 30px;

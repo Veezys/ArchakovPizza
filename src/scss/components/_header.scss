@@ -1,4 +1,4 @@
-@import 'variables';
+@import '../variables';
 
 .header {
   border-bottom: 1px solid $gray-line;
@@ -8,11 +8,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width:635px) {
+      flex-direction: column;
+      text-align: center;
+    }
   }
 
   &__logo {
     display: flex;
-
+    @media (max-width:635px) {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 15px;
+    } 
+    
     img {
       margin-right: 15px;
     }
@@ -29,4 +38,5 @@
       color: #7b7b7b;
     }
   }
+  
 }

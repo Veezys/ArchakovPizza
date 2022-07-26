@@ -4,7 +4,7 @@ import { useState } from "react";
 function Categories () {
   const [activeIndex, setIndex] = useState(0);
 
-  const categories = ['Все', 'Мясные', 'Гриль', 'Острые', 'Закрытые']
+  const categories = ['Все', 'Мясные', 'Вегатарианские','Гриль', 'Острые', 'Закрытые']
 
   function addIndex (i) {
     setIndex(i);
