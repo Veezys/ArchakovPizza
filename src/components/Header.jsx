@@ -1,6 +1,13 @@
+import { useContext} from "react";
 import { Link } from "react-router-dom";
+import { traceContext } from "../App";
+
+import Search from "./search";
 
 function Header () {
+
+    const {setSearchValue} = useContext(traceContext);
+
     return (
       <div className="header">
           <div className="container">
@@ -13,6 +20,7 @@ function Header () {
               </div>
             </div>
            </Link>
+           <Search setSearchValue={setSearchValue}/>
             <div className="header__cart">
               <Link to="/cart.html" className="button button--cart">
                 <span>520 ₽</span>
