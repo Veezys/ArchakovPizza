@@ -8,6 +8,7 @@ import Sort from './components/Sort';
 import PizzaBlock from './components/PizzaBlock';
 
 function App() {
+  
   let [pizzas, setPizzas] = React.useState([]);
 
   React.useEffect(() => {
