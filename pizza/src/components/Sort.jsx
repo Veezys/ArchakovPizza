@@ -1,14 +1,20 @@
 import React from 'react';
 
-function Sort() {
-  const sortList = ['популярности', 'цене', 'алфавиту'];
+function Sort({ value, onChangePopUpItem }) {
+  const sortList = [
+    { name: 'популярности (уб)', sortProperty: 'rating' },
+    { name: 'популярности (вз)', sortProperty: '-rating' },
+    { name: 'цене (уб)', sortProperty: 'price' },
+    { name: 'цене (вз)', sortProperty: '-price' },
+    { name: 'алфавиту (уб)', sortProperty: 'title' },
+    { name: 'алфавиту (вз)', sortProperty: '-title' },
+  ];
   const [popUp, setPopUp] = React.useState(false);
-  const [currentListItem, setCurrentListItem] = React.useState(0);
-  const sortItem = sortList[currentListItem];
+  const sortItem = value.name;
 
-  const clickPopUp = (i) => {
+  const clickPopUp = (obj) => {
     setPopUp(!popUp);
-    setCurrentListItem(i);
+    onChangePopUpItem(obj);
   };
 
   return (
@@ -31,9 +37,12 @@ function Sort() {
       {popUp && (
         <div className="sort__popup">
           <ul>
-            {sortList.map((item, i) => (
-              <li onClick={() => clickPopUp(i)} className={currentListItem === i ? 'active' : ''}>
-                {item}
+            {sortList.map((obj, i) => (
+              <li
+                key={i}
+                onClick={() => clickPopUp(obj)}
+                className={value.sortProperty === sortList.sortProperty ? 'active' : ''}>
+                {obj.name}
               </li>
             ))}
           </ul>
